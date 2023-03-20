@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New RSVP</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <h2>Create New RSVP</h2>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form th:action="@{/rsvp/save}" th:object="${rsvp}" method="POST">
+
+            <div class="mb-3">
+                <label for="" class="form-label">ID: </label>
+                <input type="text" class="form-control" name="" placeholder="ID" th:field="*{id}">
+                  <!-- Error handling -->
+                  <div class="alert alert-warning" th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Full Name</label>
+              <input type="text" class="form-control" name="" placeholder="Full Name" th:field="*{fullName}">
+                <!-- Error handling -->
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('fullName')}" th:errors="*{fullName}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Email</label>
+                <input type="text" class="form-control" name="" placeholder="Email" th:field="*{email}">
+                <!-- Error handling -->
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Phone</label>
+                <input type="text" class="form-control" name="" placeholder="phone" th:field="*{phone}">
+                <!-- Error handling -->
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('phone')}" th:errors="*{phone}"></div>
+            </div>
+
+            <div class="mb-3">
+                <label for="" class="form-label">Confirmation Date: </label>
+                <input type="date" class="form-control" name="" placeholder="date" th:field="*{confirmationDate}">
+                <!-- Error handling -->
+                <!-- has to be day of submission -->
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('confirmationDate')}" th:errors="*{confirmationDate}"></div>
+            </div>
+
+            <div class="mb-3">
+              <label for="" class="form-label">Comments: </label>
+              <textarea class="form-control" name="" id="" rows="3" th:field="*{comments}"></textarea>
+                <!-- Error handling -->
+                <!-- has to be day of submission -->
+                <div class="alert alert-warning" th:if="${#fields.hasErrors('comments')}" th:errors="*{comments}"></div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
