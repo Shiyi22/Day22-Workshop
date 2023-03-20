@@ -66,6 +66,7 @@ public class RsvpRepository {
         return iResult > 0 ? true : false; 
     }
 
+    // add a bunch of new RSVP
     // returns an array of integer 
     public int[] batchUpdate(List<RSVP> rsvps) {
         
@@ -79,7 +80,6 @@ public class RsvpRepository {
                 ps.setDate(4, rsvps.get(i).getConfirmationDate());
                 ps.setString(5, rsvps.get(i).getComments());
             }
-
             public int getBatchSize() {
                 return rsvps.size(); 
             }

@@ -81,7 +81,7 @@ public class RSVP {
         for (int i = 0; i < arr.size(); i++) {
             JsonObject json = arr.getJsonObject(i); 
             RSVP rsvp = new RSVP(); 
-            rsvp.setId(json.getInt("id"));
+            // rsvp.setId(json.getInt("id"));
             rsvp.setFullName(json.getString("fullName"));
             rsvp.setEmail(json.getString("email"));
             rsvp.setPhone(json.getString("phone"));
